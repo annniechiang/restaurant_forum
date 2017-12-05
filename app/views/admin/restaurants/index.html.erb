@@ -1,6 +1,6 @@
 <div class="container">
 
-  <h1>餐廳後台</h1>
+  <h1  class="index-title">餐廳後台</h1>
 
   <br>
 
@@ -12,11 +12,13 @@
         <%= link_to 'New Restaurant', new_admin_restaurant_path, class: "btn btn-primary" %>
       </div>
       <br>
-      <table class="table table-striped table-bordered">
+      <table class="table table-striped">
         <thead>
           <tr>
             <th>#</th>
-            <th>Restaurant Name</th>
+            <th class="res-name">Restaurant Name</th>
+            <th></th>
+            <th></th>
             <th></th>
           </tr>
         </thead>
@@ -25,11 +27,15 @@
           <% @restaurants.each do |restaurant| %>
           <tr>
             <th scope="row"><%= (@restaurants.current_page - 1)*10 + i %></th>
-            <td><%= restaurant.name %></td>
+            <td class="res-name"><%= restaurant.name %></td>
             <td>
-              <%= link_to 'Show', admin_restaurant_path(restaurant) %>
-              <%= link_to 'Edit', edit_admin_restaurant_path(restaurant) %>
-              <%= link_to 'Delete', admin_restaurant_path(restaurant), method: :delete, data: { confirm: "Are you sure?"} %>
+              <%= link_to 'Show', admin_restaurant_path(restaurant), class: "btn btn-info btn-sm" %>
+            </td>
+            <td>
+              <%= link_to 'Edit', edit_admin_restaurant_path(restaurant), class: "btn btn-warning btn-sm" %>
+            </td>
+            <td>
+              <%= link_to 'Delete', admin_restaurant_path(restaurant), method: :delete, data: { confirm: "Are you sure?"}, class: "btn btn-danger btn-sm" %>
             </td>
           </tr>
           <% i+=1 %>
