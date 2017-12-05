@@ -2,6 +2,31 @@
 
 .my-nav {
   background: #20B2AA;
+  height: 60px;
+}
+
+.navbar-header {
+  margin-top: 10px;
+}
+
+.nav-title-icon {
+  color: #FFFFFF;
+  font-size: 20px;
+}
+
+.nav-title {
+  color: #FFFFFF;
+  font-size: 25px;
+}
+
+#nav-link > li > p{
+  color: #FFFFFF;
+  font-size: 16px;
+}
+
+#nav-link > li > a {
+  color: #FFFFFF;
+  font-size: 16px;
 }
 
 /* index */
