@@ -1,11 +1,22 @@
 <div class="container">
 
-  <h2 class="index-title">餐廳分類總表</h2>
+  <h2 class="text-center">餐廳分類總表</h2>
 
-  <div class="index-title">
+  <div class="text-center">
     <%= link_to 'Restaurant', admin_restaurants_path %> |
     <%= link_to 'Categories', admin_categories_path %>
   </div>
+
+  <br>
+
+  <div class="form-inline" >
+    <%= form_for [:admin, @category] do |f| %>
+      <div class="form-group">
+        <%= f.text_field :name, placeholder: "Category Name",  class: "form-control" %>
+      </div>
+      <%= f.submit class: "btn btn-primary" %>
+    <% end %>
+  </div>  
 
   <br>
 
