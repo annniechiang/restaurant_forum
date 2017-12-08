@@ -1,4 +1,4 @@
-/* navbar */
+/* -----navbar----- */
 
 .my-nav {
   background: #20B2AA;
@@ -29,8 +29,26 @@
   font-size: 16px;
 }
 
-/* index */
+/* -----admin index----- */
 
 .res-name {
   font-size: 15px;
+}
+
+/* -----public index----- */
+
+.restaurant-item {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 4px;
+  margin-bottom: 20px;
+}
+
+.restaurant-item img {
+  max-height: 180px;
+  width: 100%;
+}
+
+.restaurant-item .caption {
+  padding: 10px;
 }
