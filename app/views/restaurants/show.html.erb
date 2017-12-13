@@ -39,6 +39,18 @@
       </div>
     </div>
 
+    <!-- 顯示與餐廳相關的評論 -->
+    <% @restaurant.comments.each do |comment| %>
+    <div>
+      <h4><%= comment.user.email.split("@")[0] %></h4>
+      <p><%= simple_format comment.content %></p>
+      <p class="text-muted">
+        <em><%= time_ago_in_words(comment.created_at) %> ago</em>
+      </p>
+    </div>
+    <hr>
+    <% end %>
+
     <div class="text-left">
       <%= link_to 'Back to index', :back, class: "btn btn-success" %>
     </div>
