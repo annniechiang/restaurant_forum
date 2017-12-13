@@ -26,6 +26,22 @@
 
     <div class="container">
       <div class="row">
+
+        <!-- 顯示與餐廳相關的評論 -->
+        <% @restaurant.comments.each do |comment| %>
+        <div>
+          <h4><%= comment.user.email.split("@")[0] %></h4>
+          <p><%= simple_format comment.content %></p>
+          <p class="text-muted">
+            <em><%= time_ago_in_words(comment.created_at) %> ago - </em>
+            <% if current_user.admin? %>
+              <%= link_to 'Delete', restaurant_comment_path(@restaurant, comment), method: :delete %>
+            <% end %>
+          </p>
+        </div>
+        <hr>
+        <% end %>
+    
         <!-- 新增評論的表單輸入框 -->
         <%= form_for [@restaurant, @comment] do |f| %>
         <div class="form-group">
@@ -37,22 +53,6 @@
         </div>
         <% end %>
       </div>
-    </div>
-
-    <!-- 顯示與餐廳相關的評論 -->
-    <% @restaurant.comments.each do |comment| %>
-    <div>
-      <h4><%= comment.user.email.split("@")[0] %></h4>
-      <p><%= simple_format comment.content %></p>
-      <p class="text-muted">
-        <em><%= time_ago_in_words(comment.created_at) %> ago</em>
-      </p>
-    </div>
-    <hr>
-    <% end %>
-
-    <div class="text-left">
-      <%= link_to 'Back to index', :back, class: "btn btn-success" %>
     </div>
 
   </div>
