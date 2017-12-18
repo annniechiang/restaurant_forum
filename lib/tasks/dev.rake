@@ -22,6 +22,7 @@
       User.create!(
         name: user_name,
         email: "#{user_name}@example.com",
+        intro: FFaker::Lorem.sentence,
         password: "12345678"
       )
     end
