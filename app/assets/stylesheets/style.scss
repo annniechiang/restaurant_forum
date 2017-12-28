@@ -65,19 +65,36 @@
 /* -----user profile ----- */
 
 .my-restaurant {
-   display: inline-block;
-   text-align: center;
-   padding: 8px 8px 0 8px;
- }
+  display: inline-block;
+  text-align: center;
+  padding: 8px 8px 0 8px;
+}
  
- .my-restaurant > div {
-   height: 60px;
- }
+.my-restaurant > div {
+  height: 60px;
+}
  
- .my-restaurant img {
-   max-height: 100%;
- }
+.my-restaurant img {
+  max-height: 100%;
+}
  
- .panel a:hover .my-restaurant {
-   background-color: #eee;
- }
+.panel a:hover .my-restaurant {
+  background-color: #eee;
+}
+
+/* -----user index ----- */
+
+.my-follow {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.my-follow div {
+  margin: 5px 0 0 0;
+}
+
+.my-follow img {
+  height: 128px;
+  width: 128px;
+  border-radius: 10px;
+}

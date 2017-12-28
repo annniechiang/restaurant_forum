@@ -7,7 +7,11 @@
     </div>
 
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-      <h2><%= @user.name %></h2>
+      <h2>
+        <%= @user.name %>
+        &nbsp
+        <%= render partial: "shared/follow", locals: {object: @user}  %>  
+      </h2>
       <strong><%= @user.email %></strong>
       <p><%= simple_format @user.intro %></p>
       <% if current_user == @user %>
