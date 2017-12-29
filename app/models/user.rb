@@ -29,7 +29,7 @@ class User < ApplicationRecord
   has_many :followings, through: :followships
 
   # 「使用者有很多追蹤者」的多對多關聯
-  has_many :inverse_followships, class_name: "Followship", foriegn_key: "following_id"
+  has_many :inverse_followships, class_name: "Followship", foreign_key: "following_id"
   has_many :followers, through: :inverse_followships, source: :user
 
   def admin?
