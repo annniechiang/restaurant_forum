@@ -71,29 +71,34 @@
 }
  
 .my-restaurant > div {
-  height: 60px;
+  height: 80px;
 }
  
 .my-restaurant img {
   max-height: 100%;
+  border-radius: 10px;
 }
  
 .panel a:hover .my-restaurant {
   background-color: #eee;
 }
 
+.my-follow {    /* 實際上未使用 */
+  height: 40px;
+}
+
 /* -----user index ----- */
 
-.my-follow {
+.all-user {
   text-align: center;
   margin-bottom: 40px;
 }
 
-.my-follow div {
+.all-user div {
   margin: 5px 0 0 0;
 }
 
-.my-follow img {
+.all-user img {
   height: 128px;
   width: 128px;
   border-radius: 10px;

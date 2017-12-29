@@ -3,7 +3,8 @@
     <div class="col-md-10 col-md-offset-1">
     
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-      <%= image_tag @user.avatar, class: "img-responsive img-rounded" %>
+      <!-- <%= image_tag @user.avatar, class: "img-responsive img-rounded" %> -->
+      <img class="img-circle" src="http://via.placeholder.com/300x300">
     </div>
 
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
@@ -21,7 +22,59 @@
 
     <hr class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 
-    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">     
+      <!-- # 原本的寫法 #
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title"><strong><%= @user.followings.count %></strong> followings</h3>
+        </div>
+        <div class="panel-body">
+          <% @user.followings.each do |following| %>
+            <div class="my-follow">
+              <img class="img-circle" src="http://via.placeholder.com/50x50">
+              &nbsp
+              <%= link_to following.name, user_path(following) %>
+            </div>
+            <hr>
+          <% end %>
+        </div>
+      </div>
+      -->
+
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <!-- 也可先至 user controller 設定 @followings = @user.followings -->
+          <h3 class="panel-title"><strong><%= @user.followings.count %></strong> followings</h3>
+        </div>
+        <ul class="list-group">
+          <% @user.followings.each do |following| %>
+            <li class="list-group-item">
+              <img class="img-circle" src="http://via.placeholder.com/60x60">
+              &nbsp
+              <%= link_to following.name, user_path(following) %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <!-- 也可先至 user controller 設定 @followers = @user.followers -->
+          <h3 class="panel-title"><strong><%= @user.followers.count %></strong> followers</h3>
+        </div>
+        <ul class="list-group">
+          <% @user.followers.each do |following| %>
+            <li class="list-group-item">
+              <img class="img-circle" src="http://via.placeholder.com/60x60">
+              &nbsp
+              <%= link_to following.name, user_path(following) %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+
+    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
       <div class="panel panel-default">
         <div class="panel-heading">
           <h3 class="panel-title"><strong><%= @commented_restaurants.count %></strong> 已評論餐廳</h3>
@@ -31,7 +84,27 @@
             <%= link_to restaurant_path(restaurant) do %>
               <div class="my-restaurant">
                 <div>
-                  <%= image_tag restaurant.image, class: "img-responsive img-rounded" %>
+                  <img src="http://via.placeholder.com/180x128">
+                  <!-- <%= image_tag restaurant.image, class: "img-responsive img-rounded" %> -->
+                </div>
+                <h5><%= restaurant.name %></h5>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title"><strong><%= @favorited_restaurants.count %></strong> 收藏的餐廳</h3>
+        </div>
+        <div class="panel-body">
+          <% @favorited_restaurants.each do |restaurant| %>
+            <%= link_to restaurant_path(restaurant) do %>
+              <div class="my-restaurant">
+                <div>
+                  <img src="http://via.placeholder.com/180x128">
+                  <!-- <%= image_tag restaurant.image, class: "img-responsive img-rounded" %> -->
                 </div>
                 <h5><%= restaurant.name %></h5>
               </div>
