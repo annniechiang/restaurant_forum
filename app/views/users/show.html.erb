@@ -11,7 +11,8 @@
       <h2>
         <%= @user.name %>
         &nbsp
-        <%= render partial: "shared/follow", locals: {object: @user}  %>  
+        <%= render partial: "shared/follow", locals: {object: @user}  %>
+        <%= render partial: "shared/friend", locals: {object: @user}  %>  
       </h2>
       <strong><%= @user.email %></strong>
       <p><%= simple_format @user.intro %></p>
