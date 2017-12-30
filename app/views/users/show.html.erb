@@ -19,6 +19,7 @@
       <% if current_user == @user %>
         <%= link_to 'Edit Profile', edit_user_path(@user), class: "btn btn-primary btn-sm" %>
       <% end %>
+      <%= link_to '我的好友', friend_list_user_path(@user), class: "btn btn-success btn-sm" %>
     </div>
 
     <hr class="col-xs-12 col-sm-12 col-md-12 col-lg-12">

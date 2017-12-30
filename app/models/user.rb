@@ -36,6 +36,10 @@ class User < ApplicationRecord
   has_many :friendships, dependent: :destroy
   has_many :friends, through: :friendships
 
+  # 「使用者被很多使用者加為朋友」的多對多關聯
+  has_many :inverse_friendships, class_name: "Friendship", foreign_key: "friend_id"
+  has_many :added_friends, through: :inverse_friendships, source: :user
+
   def admin?
     self.role == "admin"
   end
@@ -46,5 +50,10 @@ class User < ApplicationRecord
 
   def is_friend?(user)
     self.friends.include?(user)
+  end
+
+  def all_friends
+    all = self.friends + self.added_friends
+    all.uniq
   end
 end

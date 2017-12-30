@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1"">
+
+    <h1>我的好友</h1>
+    
+    <hr>
+
+    <% @all_friends.each do |friend| %>
+      <div class="col-md-3 col-sm-4 col-xs-6 all-user">
+        <%= link_to user_path(friend) do %>
+          <img src="http://via.placeholder.com/128x128">
+          <!-- <%= image_tag(friend.avatar, class: "img-responsive img-rounded center-block") %> -->
+          <h4><%= friend.name %></h4>
+        <% end %>
+        <%= render partial: "shared/follow", locals: {object: friend}  %>
+        <%= render partial: "shared/friend", locals: {object: friend}  %>
+      </div>
+    <% end %>
+
+    </div>
+  </div>
+</div>
