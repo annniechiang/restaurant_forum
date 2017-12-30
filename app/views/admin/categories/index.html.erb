@@ -38,17 +38,19 @@
           </tr>
         </thead>
         <tbody>
+          <% i=1 %>
           <% @categories.each do |category| %>
-          <tr>
-            <th scope="row"><%= category.id %></th>
-            <td><%= category.name %></td>
-            <td>
-              <%= link_to 'Edit', admin_categories_path(id: category.id), class: "btn btn-warning btn-sm" %>
-            </td>
-            <td>
-              <%= link_to 'Delete', admin_category_path(category), method: :delete, data: { confirm: "Are you sure?"}, class: "btn btn-danger btn-sm" %>
-            </td>
-          </tr>
+            <tr>
+              <th scope="row"><%= i %></th>
+              <td><%= category.name %></td>
+              <td>
+                <%= link_to 'Edit', admin_categories_path(id: category.id), class: "btn btn-warning btn-sm" %>
+              </td>
+              <td>
+                <%= link_to 'Delete', admin_category_path(category), method: :delete, data: { confirm: "Are you sure?"}, class: "btn btn-danger btn-sm" %>
+              </td>
+            </tr>
+          <% i+=1 %>
           <% end %>
         </tbody>
       </table>
