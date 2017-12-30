@@ -32,6 +32,10 @@ class User < ApplicationRecord
   has_many :inverse_followships, class_name: "Followship", foreign_key: "following_id"
   has_many :followers, through: :inverse_followships, source: :user
 
+  # 「使用者加很多使用者為朋友」的多對多關聯
+  has_many :friendships, dependent: :destroy
+  has_many :friends, through: :friendships
+
   def admin?
     self.role == "admin"
   end
